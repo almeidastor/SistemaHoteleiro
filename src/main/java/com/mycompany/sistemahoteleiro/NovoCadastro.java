@@ -68,8 +68,10 @@ public class NovoCadastro extends javax.swing.JFrame {
         txtObservacoes = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         pCheckout = new javax.swing.JPanel();
-        lblSaida = new javax.swing.JLabel();
-        txtSaida = new javax.swing.JTextField();
+        lblSaida1 = new javax.swing.JLabel();
+        txtSaida1 = new javax.swing.JTextField();
+        lblValor = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
         lblPagamento = new javax.swing.JLabel();
         cbVista = new javax.swing.JCheckBox();
         cbTransferencia = new javax.swing.JCheckBox();
@@ -105,6 +107,11 @@ public class NovoCadastro extends javax.swing.JFrame {
         txtEntrada.setAlignmentX(0.0F);
         txtEntrada.setAlignmentY(0.0F);
         txtEntrada.setAutoscrolls(false);
+        txtEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEntradaActionPerformed(evt);
+            }
+        });
         pCheckin.add(txtEntrada);
         txtEntrada.setBounds(105, 10, 120, 26);
 
@@ -179,7 +186,12 @@ public class NovoCadastro extends javax.swing.JFrame {
         lblCategoria.setText("Categoria:");
         lblCategoria.setAlignmentY(0.0F);
 
-        cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trabalho", "Lazer", "Estudo", "Retiro", "Seminário", "Outros" }));
+        cmbCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCategoriaActionPerformed(evt);
+            }
+        });
 
         lblOrientador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblOrientador.setText("<html><body>Orientador/</br> Conferencista:</body></html>");
@@ -222,7 +234,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         });
         pNormal.setLayout(null);
 
-        cmbNormal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNormal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Normal(Sem Toalhas)", "Normal(com toalhas)", "Com uso de Multimidia", "Com uso da multimidia, internet e toalhas..(MT)" }));
         pNormal.add(cmbNormal);
         cmbNormal.setBounds(10, 18, 320, 27);
 
@@ -234,7 +246,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         pVegetariana.setPreferredSize(new java.awt.Dimension(310, 45));
         pVegetariana.setLayout(null);
 
-        cmbVegetariana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbVegetariana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Normal(Sem Toalhas)", "Normal(com toalhas)", "Com uso de Multimidia", "Com uso de Internet", "Com uso da Multimidia e Internet", "Com uso da multimidia, internet e toalhas..(MT)" }));
         pVegetariana.add(cmbVegetariana);
         cmbVegetariana.setBounds(10, 18, 320, 27);
 
@@ -246,7 +258,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         pDiversos.setPreferredSize(new java.awt.Dimension(310, 45));
         pDiversos.setLayout(null);
 
-        cmbDiversos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDiversos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Econtros Externos sem refeição", "Encontros externos com refeição", "Encontros externos só com o uso do auditório", "Encontros externos com o auditório e refeição", "Diaria dos bispos-Encontro Latino americano. Completo", "Diaria dos empresarios", "Retiro das irmãs franciscanas de bonlanden", "yoga- formação. Prof Kalidas(sem toalha e quarto duplo)", "yoga- formação. Prof Kalidas(sem toalha e quarto individual)", "Especial. Instituto ecosocia(Formação...)" }));
         pDiversos.add(cmbDiversos);
         cmbDiversos.setBounds(10, 18, 320, 27);
 
@@ -258,7 +270,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         pInternos.setPreferredSize(new java.awt.Dimension(310, 45));
         pInternos.setLayout(null);
 
-        cmbInternos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbInternos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "café da manha,cafezinho,almoço,lanche da tarde e auditório", "Interno com multimidia", "Dieta normal(Sem toalhas)", "Dieta normal(Com toalhas)", "Dieta Vegetariana(Sem toalhas)", "Dieta Vegetariana(Com toalhas)", "Diaria dos Bispos- Encontro latino americano.(Completo)", "Dieta dos Empresários", "Almoço individual (Comum) 23,00", "Almoço individual (Aniversarios)30,00", "Café da Manhã", "Jantar", "Cafezinho M e lanche da tarde 9,00 + 11,00", "espaço livre(Casa da Juventude)", "Dormir", "Uso do auditório ou Sala Yoga por externos" }));
         pInternos.add(cmbInternos);
         cmbInternos.setBounds(10, 18, 320, 27);
 
@@ -286,17 +298,29 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckout.setPreferredSize(new java.awt.Dimension(310, 45));
         pCheckout.setLayout(null);
 
-        lblSaida.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblSaida.setText("Data de Saída:");
-        lblSaida.setAlignmentY(0.0F);
-        pCheckout.add(lblSaida);
-        lblSaida.setBounds(9, 17, 90, 27);
+        lblSaida1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblSaida1.setText("Data de Saída:");
+        lblSaida1.setAlignmentY(0.0F);
+        pCheckout.add(lblSaida1);
+        lblSaida1.setBounds(9, 17, 90, 27);
 
-        txtSaida.setAlignmentX(0.0F);
-        txtSaida.setAlignmentY(0.0F);
-        txtSaida.setAutoscrolls(false);
-        pCheckout.add(txtSaida);
-        txtSaida.setBounds(100, 17, 120, 27);
+        txtSaida1.setAlignmentX(0.0F);
+        txtSaida1.setAlignmentY(0.0F);
+        txtSaida1.setAutoscrolls(false);
+        pCheckout.add(txtSaida1);
+        txtSaida1.setBounds(100, 17, 120, 27);
+
+        lblValor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblValor.setText("Valor:");
+        lblValor.setAlignmentY(0.0F);
+        pCheckout.add(lblValor);
+        lblValor.setBounds(60, 70, 40, 27);
+
+        txtValor.setAlignmentX(0.0F);
+        txtValor.setAlignmentY(0.0F);
+        txtValor.setAutoscrolls(false);
+        pCheckout.add(txtValor);
+        txtValor.setBounds(100, 70, 120, 27);
 
         lblPagamento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblPagamento.setText("Pagamento:");
@@ -579,6 +603,14 @@ public class NovoCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimparActionPerformed
 
+    private void cmbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCategoriaActionPerformed
+
+    private void txtEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEntradaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -661,8 +693,9 @@ public class NovoCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel lblOrientador;
     private javax.swing.JLabel lblPagamento;
     private javax.swing.JLabel lblResponsavel;
-    private javax.swing.JLabel lblSaida;
+    private javax.swing.JLabel lblSaida1;
     private javax.swing.JLabel lblTelefone;
+    private javax.swing.JLabel lblValor;
     private javax.swing.JPanel pCheckin;
     private javax.swing.JPanel pCheckout;
     private javax.swing.JPanel pDiversos;
@@ -678,7 +711,8 @@ public class NovoCadastro extends javax.swing.JFrame {
     private javax.swing.JTextField txtNQuartos;
     private javax.swing.JScrollPane txtObservacoes;
     private javax.swing.JTextField txtResponsavel;
-    private javax.swing.JTextField txtSaida;
+    private javax.swing.JTextField txtSaida1;
     private javax.swing.JTextField txtTelefone;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
