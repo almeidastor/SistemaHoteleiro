@@ -245,6 +245,9 @@
             <Property name="alignmentY" type="float" value="0.0"/>
             <Property name="autoscrolls" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEntradaActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="105" y="10" width="120" height="26"/>
@@ -399,14 +402,19 @@
     <Component class="javax.swing.JComboBox" name="cmbCategoria">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="6">
+            <StringItem index="0" value="Trabalho"/>
+            <StringItem index="1" value="Lazer"/>
+            <StringItem index="2" value="Estudo"/>
+            <StringItem index="3" value="Retiro"/>
+            <StringItem index="4" value="Semin&#xe1;rio"/>
+            <StringItem index="5" value="Outros"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCategoriaActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -493,11 +501,12 @@
         <Component class="javax.swing.JComboBox" name="cmbNormal">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="5">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="Normal(Sem Toalhas)"/>
+                <StringItem index="2" value="Normal(com toalhas)"/>
+                <StringItem index="3" value="Com uso de Multimidia"/>
+                <StringItem index="4" value="Com uso da multimidia, internet e toalhas..(MT)"/>
               </StringArray>
             </Property>
           </Properties>
@@ -541,11 +550,14 @@
         <Component class="javax.swing.JComboBox" name="cmbVegetariana">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="7">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="Normal(Sem Toalhas)"/>
+                <StringItem index="2" value="Normal(com toalhas)"/>
+                <StringItem index="3" value="Com uso de Multimidia"/>
+                <StringItem index="4" value="Com uso de Internet"/>
+                <StringItem index="5" value="Com uso da Multimidia e Internet"/>
+                <StringItem index="6" value="Com uso da multimidia, internet e toalhas..(MT)"/>
               </StringArray>
             </Property>
           </Properties>
@@ -589,11 +601,18 @@
         <Component class="javax.swing.JComboBox" name="cmbDiversos">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="11">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="Econtros Externos sem refei&#xe7;&#xe3;o"/>
+                <StringItem index="2" value="Encontros externos com refei&#xe7;&#xe3;o"/>
+                <StringItem index="3" value="Encontros externos s&#xf3; com o uso do audit&#xf3;rio"/>
+                <StringItem index="4" value="Encontros externos com o audit&#xf3;rio e refei&#xe7;&#xe3;o"/>
+                <StringItem index="5" value="Diaria dos bispos-Encontro Latino americano. Completo"/>
+                <StringItem index="6" value="Diaria dos empresarios"/>
+                <StringItem index="7" value="Retiro das irm&#xe3;s franciscanas de bonlanden"/>
+                <StringItem index="8" value="yoga- forma&#xe7;&#xe3;o. Prof Kalidas(sem toalha e quarto duplo)"/>
+                <StringItem index="9" value="yoga- forma&#xe7;&#xe3;o. Prof Kalidas(sem toalha e quarto individual)"/>
+                <StringItem index="10" value="Especial. Instituto ecosocia(Forma&#xe7;&#xe3;o...)"/>
               </StringArray>
             </Property>
           </Properties>
@@ -637,11 +656,24 @@
         <Component class="javax.swing.JComboBox" name="cmbInternos">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="17">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="caf&#xe9; da manha,cafezinho,almo&#xe7;o,lanche da tarde e audit&#xf3;rio"/>
+                <StringItem index="2" value="Interno com multimidia"/>
+                <StringItem index="3" value="Dieta normal(Sem toalhas)"/>
+                <StringItem index="4" value="Dieta normal(Com toalhas)"/>
+                <StringItem index="5" value="Dieta Vegetariana(Sem toalhas)"/>
+                <StringItem index="6" value="Dieta Vegetariana(Com toalhas)"/>
+                <StringItem index="7" value="Diaria dos Bispos- Encontro latino americano.(Completo)"/>
+                <StringItem index="8" value="Dieta dos Empres&#xe1;rios"/>
+                <StringItem index="9" value="Almo&#xe7;o individual (Comum) 23,00"/>
+                <StringItem index="10" value="Almo&#xe7;o individual (Aniversarios)30,00"/>
+                <StringItem index="11" value="Caf&#xe9; da Manh&#xe3;"/>
+                <StringItem index="12" value="Jantar"/>
+                <StringItem index="13" value="Cafezinho M e lanche da tarde 9,00 + 11,00"/>
+                <StringItem index="14" value="espa&#xe7;o livre(Casa da Juventude)"/>
+                <StringItem index="15" value="Dormir"/>
+                <StringItem index="16" value="Uso do audit&#xf3;rio ou Sala Yoga por externos"/>
               </StringArray>
             </Property>
           </Properties>
@@ -731,7 +763,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblSaida">
+        <Component class="javax.swing.JLabel" name="lblSaida1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
@@ -745,7 +777,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtSaida">
+        <Component class="javax.swing.JTextField" name="txtSaida1">
           <Properties>
             <Property name="alignmentX" type="float" value="0.0"/>
             <Property name="alignmentY" type="float" value="0.0"/>
@@ -754,6 +786,32 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="100" y="17" width="120" height="27"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblValor">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Valor:"/>
+            <Property name="alignmentY" type="float" value="0.0"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="60" y="70" width="40" height="27"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtValor">
+          <Properties>
+            <Property name="alignmentX" type="float" value="0.0"/>
+            <Property name="alignmentY" type="float" value="0.0"/>
+            <Property name="autoscrolls" type="boolean" value="false"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="100" y="70" width="120" height="27"/>
             </Constraint>
           </Constraints>
         </Component>
