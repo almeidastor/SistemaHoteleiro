@@ -1,5 +1,9 @@
 package com.mycompany.sistemahoteleiro;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,10 +12,9 @@ package com.mycompany.sistemahoteleiro;
 
 /**
  *
- * @author Stor
+ * @author almeidastor
  */
 public class NovoCadastro extends javax.swing.JFrame {
-
     /**
      * Creates new form NovoCadastro
      */
@@ -22,6 +25,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         this.setResizable(false);
         this.setTitle("Sistema Hoteleiro");
         
+       
     }
 
     /**
@@ -87,7 +91,6 @@ public class NovoCadastro extends javax.swing.JFrame {
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(741, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(741, 600));
 
@@ -187,6 +190,12 @@ public class NovoCadastro extends javax.swing.JFrame {
         lblCategoria.setAlignmentY(0.0F);
 
         cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trabalho", "Lazer", "Estudo", "Retiro", "Seminário", "Outros" }));
+        cmbCategoria.setSelectedIndex(-1);
+        cmbCategoria.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                cmbCategoriaComponentShown(evt);
+            }
+        });
         cmbCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoriaActionPerformed(evt);
@@ -611,10 +620,16 @@ public class NovoCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaActionPerformed
 
+    private void cmbCategoriaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cmbCategoriaComponentShown
+
+    }//GEN-LAST:event_cmbCategoriaComponentShown
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+              
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -656,10 +671,12 @@ public class NovoCadastro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NovoCadastro().setVisible(true);
+                new NovoCadastro().setVisible(true);       
             }
         });
     }
+    
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
