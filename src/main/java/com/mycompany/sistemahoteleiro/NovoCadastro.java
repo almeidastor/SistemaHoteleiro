@@ -2,6 +2,7 @@ package com.mycompany.sistemahoteleiro;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 
 /*
@@ -25,7 +26,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         this.setResizable(false);
         this.setTitle("Sistema Hoteleiro");
         
-       
+        
     }
 
     /**
@@ -39,9 +40,8 @@ public class NovoCadastro extends javax.swing.JFrame {
 
         pCheckin = new javax.swing.JPanel();
         lblEntrada = new javax.swing.JLabel();
-        txtEntrada = new javax.swing.JTextField();
-        btnCalendario3 = new javax.swing.JButton();
         btnBusca1 = new javax.swing.JButton();
+        txtEntrada = new org.jdesktop.swingx.JXDatePicker();
         lblResponsavel = new javax.swing.JLabel();
         txtResponsavel = new javax.swing.JTextField();
         btnBuscaResp = new javax.swing.JButton();
@@ -73,7 +73,6 @@ public class NovoCadastro extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         pCheckout = new javax.swing.JPanel();
         lblSaida1 = new javax.swing.JLabel();
-        txtSaida1 = new javax.swing.JTextField();
         lblValor = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
         lblPagamento = new javax.swing.JLabel();
@@ -82,7 +81,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         cbCheque = new javax.swing.JCheckBox();
         cbCredito = new javax.swing.JCheckBox();
         cbReserva = new javax.swing.JCheckBox();
-        btnCalendario4 = new javax.swing.JButton();
+        txtEntrada1 = new org.jdesktop.swingx.JXDatePicker();
         txtID = new javax.swing.JTextField();
         btnLimpar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
@@ -107,23 +106,6 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckin.add(lblEntrada);
         lblEntrada.setBounds(5, 10, 94, 27);
 
-        txtEntrada.setAlignmentX(0.0F);
-        txtEntrada.setAlignmentY(0.0F);
-        txtEntrada.setAutoscrolls(false);
-        txtEntrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaActionPerformed(evt);
-            }
-        });
-        pCheckin.add(txtEntrada);
-        txtEntrada.setBounds(105, 10, 120, 26);
-
-        btnCalendario3.setText("📅");
-        btnCalendario3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray));
-        btnCalendario3.setBorderPainted(false);
-        pCheckin.add(btnCalendario3);
-        btnCalendario3.setBounds(228, 10, 27, 27);
-
         btnBusca1.setText("🔎");
         btnBusca1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBusca1.setBorderPainted(false);
@@ -134,6 +116,16 @@ public class NovoCadastro extends javax.swing.JFrame {
         });
         pCheckin.add(btnBusca1);
         btnBusca1.setBounds(263, 10, 43, 27);
+
+        txtEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEntrada.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
+        txtEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEntradaActionPerformed(evt);
+            }
+        });
+        pCheckin.add(txtEntrada);
+        txtEntrada.setBounds(105, 10, 150, 27);
 
         lblResponsavel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblResponsavel.setText("Responsável:");
@@ -313,12 +305,6 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckout.add(lblSaida1);
         lblSaida1.setBounds(9, 17, 90, 27);
 
-        txtSaida1.setAlignmentX(0.0F);
-        txtSaida1.setAlignmentY(0.0F);
-        txtSaida1.setAutoscrolls(false);
-        pCheckout.add(txtSaida1);
-        txtSaida1.setBounds(100, 17, 120, 27);
-
         lblValor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblValor.setText("Valor:");
         lblValor.setAlignmentY(0.0F);
@@ -392,11 +378,26 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckout.add(cbReserva);
         cbReserva.setBounds(398, 84, 120, 27);
 
-        btnCalendario4.setText("📅");
-        btnCalendario4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCalendario4.setBorderPainted(false);
-        pCheckout.add(btnCalendario4);
-        btnCalendario4.setBounds(227, 17, 27, 27);
+        txtEntrada1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEntrada1.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
+        txtEntrada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEntrada1ActionPerformed(evt);
+            }
+        });
+        pCheckout.add(txtEntrada1);
+        txtEntrada1.setBounds(100, 17, 150, 27);
+
+        txtID.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                txtIDComponentShown(evt);
+            }
+        });
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
 
         btnLimpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLimpar.setText("Limpar");
@@ -616,13 +617,25 @@ public class NovoCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCategoriaActionPerformed
 
+    private void cmbCategoriaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cmbCategoriaComponentShown
+
+    }//GEN-LAST:event_cmbCategoriaComponentShown
+
     private void txtEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaActionPerformed
 
-    private void cmbCategoriaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cmbCategoriaComponentShown
+    private void txtEntrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntrada1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEntrada1ActionPerformed
 
-    }//GEN-LAST:event_cmbCategoriaComponentShown
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void txtIDComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtIDComponentShown
+      
+    }//GEN-LAST:event_txtIDComponentShown
 
     /**
      * @param args the command line arguments
@@ -683,8 +696,6 @@ public class NovoCadastro extends javax.swing.JFrame {
     private javax.swing.JButton btnBusca1;
     private javax.swing.JButton btnBuscaGrup;
     private javax.swing.JButton btnBuscaResp;
-    private javax.swing.JButton btnCalendario3;
-    private javax.swing.JButton btnCalendario4;
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
@@ -721,14 +732,14 @@ public class NovoCadastro extends javax.swing.JFrame {
     private javax.swing.JPanel pObservacoes;
     private javax.swing.JPanel pVegetariana;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEntrada;
+    private org.jdesktop.swingx.JXDatePicker txtEntrada;
+    private org.jdesktop.swingx.JXDatePicker txtEntrada1;
     private javax.swing.JTextField txtGrupo;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNPessoas;
     private javax.swing.JTextField txtNQuartos;
     private javax.swing.JScrollPane txtObservacoes;
     private javax.swing.JTextField txtResponsavel;
-    private javax.swing.JTextField txtSaida1;
     private javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
