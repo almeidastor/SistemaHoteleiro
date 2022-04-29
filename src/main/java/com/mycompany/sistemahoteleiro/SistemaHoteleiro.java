@@ -5,8 +5,6 @@
  */
 package com.mycompany.sistemahoteleiro;
 
-import java.awt.Dimension;
-
 /**
  *
  * @author Stor
@@ -15,5 +13,7 @@ public class SistemaHoteleiro {
     void main(String[] args) {
     NovoCadastro telaPrincipal = new NovoCadastro();
     telaPrincipal.setVisible (true);
+        
+        
     }  
 }
