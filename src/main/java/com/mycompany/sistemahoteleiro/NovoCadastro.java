@@ -3,6 +3,7 @@ package com.mycompany.sistemahoteleiro;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 
 /*
@@ -25,8 +26,6 @@ public class NovoCadastro extends javax.swing.JFrame {
         this.setSize(741, 600);
         this.setResizable(false);
         this.setTitle("Sistema Hoteleiro");
-        
-        
     }
 
     /**
@@ -117,6 +116,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckin.add(btnBusca1);
         btnBusca1.setBounds(263, 10, 43, 27);
 
+        txtEntrada.setDate((new Date()));
         txtEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtEntrada.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         txtEntrada.addActionListener(new java.awt.event.ActionListener() {
@@ -378,6 +378,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckout.add(cbReserva);
         cbReserva.setBounds(398, 84, 120, 27);
 
+        txtEntrada1.setDate((new Date()));
         txtEntrada1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtEntrada1.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         txtEntrada1.addActionListener(new java.awt.event.ActionListener() {
@@ -622,7 +623,7 @@ public class NovoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbCategoriaComponentShown
 
     private void txtEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaActionPerformed
-        // TODO add your handling code here:
+// TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaActionPerformed
 
     private void txtEntrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntrada1ActionPerformed
