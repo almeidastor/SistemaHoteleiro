@@ -1,5 +1,6 @@
 package com.mycompany.sistemahoteleiro;
 
+import static java.awt.SystemColor.text;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
@@ -51,6 +52,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         txtGrupo = new javax.swing.JTextField();
         btnBuscaGrup = new javax.swing.JButton();
         lblTelefone = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JFormattedTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblCategoria = new javax.swing.JLabel();
@@ -89,11 +91,10 @@ public class NovoCadastro extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnEnviar = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(new java.awt.Dimension(741, 600));
+        setSize(new java.awt.Dimension(741, 650));
 
         pCheckin.setBackground(new java.awt.Color(255, 255, 255));
         pCheckin.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -168,6 +169,12 @@ public class NovoCadastro extends javax.swing.JFrame {
         lblTelefone.setText("Telefone:");
         lblTelefone.setAlignmentY(0.0F);
 
+        try {
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         lblEmail.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblEmail.setText("E-mail:");
         lblEmail.setAlignmentY(0.0F);
@@ -235,6 +242,11 @@ public class NovoCadastro extends javax.swing.JFrame {
         pNormal.setLayout(null);
 
         cmbNormal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Normal(Sem Toalhas)", "Normal(com toalhas)", "Com uso de Multimidia", "Com uso da multimidia, internet e toalhas..(MT)" }));
+        cmbNormal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNormalActionPerformed(evt);
+            }
+        });
         pNormal.add(cmbNormal);
         cmbNormal.setBounds(10, 18, 320, 27);
 
@@ -425,77 +437,71 @@ public class NovoCadastro extends javax.swing.JFrame {
         btnEnviar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEnviar.setText("Enviar");
 
-        try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblResponsavel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnBuscaResp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(28, 28, 28))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(pCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(24, 24, 24)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(32, 32, 32)
-                                    .addComponent(lblNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(txtNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(31, 31, 31)
-                                    .addComponent(lblNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(pNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pVegetariana, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pDiversos, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pInternos, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblOrientador, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cmbCategoria, 0, 168, Short.MAX_VALUE)
-                                .addComponent(cmbOrientador, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                .addComponent(txtEmail)
-                                .addComponent(txtGrupo, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnBuscaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(pObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(lblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblResponsavel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(11, 11, 11)
+                                        .addComponent(txtResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscaResp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(pCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(24, 24, 24)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(lblNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(txtNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(lblNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(pNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pVegetariana, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pDiversos, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pInternos, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblOrientador, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cmbCategoria, 0, 168, Short.MAX_VALUE)
+                                    .addComponent(cmbOrientador, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                    .addComponent(txtEmail)
+                                    .addComponent(txtGrupo, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,7 +537,7 @@ public class NovoCadastro extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(btnBuscaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -646,6 +652,151 @@ public class NovoCadastro extends javax.swing.JFrame {
       
     }//GEN-LAST:event_txtIDComponentShown
 
+    private void cmbNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNormalActionPerformed
+     float pnormal = 0;
+     float pvegetariano = 0;
+     float pdiversos = 0;
+     float pinternos = 0;
+     
+     String plnormal = (String) cmbNormal.getSelectedItem();
+     String plvegetariano = (String) cmbVegetariana.getSelectedItem();
+     String pldiversos = (String) cmbDiversos.getSelectedItem();
+     String plinternos = (String) cmbInternos.getSelectedItem();
+     
+        //Plano normal
+        if (plnormal ==""){
+            pnormal = 0;    
+        }
+        if (plnormal =="Normal(Sem Toalhas)"){
+            pnormal = 1;    
+        }
+        if (plnormal =="Normal(com toalhas)"){
+            pnormal = 2;    
+        }
+        if (plnormal =="Com uso de Multimidia"){
+            pnormal = 3;    
+        }
+        if (plnormal =="Com uso da multimidia, internet e toalhas..(MT)"){
+            pnormal = 4;    
+        }
+        
+        //Plano vegetariano
+        if (plvegetariano ==""){
+            pvegetariano = 0;    
+        }
+        if (plvegetariano =="Normal(Sem Toalhas)"){
+            pvegetariano = 1;    
+        }
+        if (plvegetariano =="Normal(com toalhas)"){
+            pvegetariano = 2;    
+        }
+        if (plvegetariano =="Com uso de Multimidia"){
+            pvegetariano = 3;    
+        }
+        if (plvegetariano =="Com uso de Internet"){
+            pvegetariano = 4;    
+        }
+        if (plvegetariano =="Com uso da Multimidia e Internet"){
+            pvegetariano = 4;    
+        }
+        if (plvegetariano =="Com uso da multimidia, internet e toalhas..(MT)"){
+            pvegetariano = 4;    
+        }
+        
+        //Plano Encontro Diversos
+        if (pldiversos ==""){
+            pdiversos = 0;    
+        }
+        if (pldiversos =="Econtros Externos sem refeição"){
+            pdiversos = 1;    
+        }
+        if (pldiversos =="Encontros externos com refeição"){
+            pdiversos = 2;    
+        }
+        if (pldiversos =="Encontros externos só com o uso do auditório"){
+            pdiversos = 3;    
+        }
+        if (pldiversos =="Encontros externos com o auditório e refeição"){
+            pdiversos = 4;    
+        }
+        if (pldiversos =="Diaria dos bispos-Encontro Latino americano. Completo"){
+            pdiversos = 4;    
+        }
+        if (pldiversos =="Diaria dos empresarios"){
+            pdiversos = 4;    
+        }
+        if (pldiversos =="Retiro das irmãs franciscanas de bonlanden"){
+            pdiversos = 4;    
+        }
+        if (pldiversos =="yoga- formação. Prof Kalidas(sem toalha e quarto duplo)"){
+            pdiversos = 4;    
+        }
+        if (pldiversos =="yoga- formação. Prof Kalidas(sem toalha e quarto individual)"){
+            pdiversos = 4;    
+        }
+        if (pldiversos =="Especial. Instituto ecosocia(Formação...)"){
+            pdiversos = 4;    
+        }
+        
+        
+        //Plano Encontros Internos com
+        if (plinternos ==""){
+            pinternos = 0;    
+        }
+        if (plinternos =="café da manha,cafezinho,almoço,lanche da tarde e auditório"){
+            pinternos = 1;    
+        }
+        if (plinternos =="Interno com multimidia"){
+            pinternos = 2;    
+        }
+        if (plinternos =="Dieta normal(Sem toalhas)"){
+            pinternos = 3;    
+        }
+        if (plinternos =="Dieta normal(Com toalhas)"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Dieta Vegetariana(Sem toalhas)"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Dieta Vegetariana(Com toalhas)"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Diaria dos Bispos- Encontro latino americano.(Completo)"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Dieta dos Empresários"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Almoço individual (Comum) 23,00"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Almoço individual (Aniversarios)30,00"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Café da Manhã"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Jantar"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Cafezinho M e lanche da tarde 9,00 + 11,00"){
+            pinternos = 4;    
+        }
+        if (plinternos =="espaço livre(Casa da Juventude)"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Dormir"){
+            pinternos = 4;    
+        }
+        if (plinternos =="Uso do auditório ou Sala Yoga por externos"){
+            pinternos = 4;    
+        }
+
+        
+        //txtValor.setText(Float.toString(valor));
+        
+    }//GEN-LAST:event_cmbNormalActionPerformed
+        
     /**
      * @param args the command line arguments
      */
@@ -719,7 +870,6 @@ public class NovoCadastro extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbNormal;
     private javax.swing.JTextField cmbOrientador;
     private javax.swing.JComboBox<String> cmbVegetariana;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblCategoria;
@@ -750,6 +900,7 @@ public class NovoCadastro extends javax.swing.JFrame {
     private javax.swing.JTextField txtNQuartos;
     private javax.swing.JScrollPane txtObservacoes;
     private javax.swing.JTextField txtResponsavel;
+    private javax.swing.JFormattedTextField txtTelefone;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
