@@ -658,14 +658,16 @@ public class NovoCadastro extends javax.swing.JFrame {
      float pdiversos = 0;
      float pinternos = 0;
      
+     
      String plnormal = (String) cmbNormal.getSelectedItem();
      String plvegetariano = (String) cmbVegetariana.getSelectedItem();
      String pldiversos = (String) cmbDiversos.getSelectedItem();
      String plinternos = (String) cmbInternos.getSelectedItem();
      
+     
         //Plano normal
         if (plnormal ==""){
-            pnormal = 0;    
+            pnormal = 0;
         }
         if (plnormal =="Normal(Sem Toalhas)"){
             pnormal = 1;    
@@ -676,16 +678,16 @@ public class NovoCadastro extends javax.swing.JFrame {
         if (plnormal =="Com uso de Multimidia"){
             pnormal = 3;    
         }
-        if (plnormal =="Com uso da multimidia, internet e toalhas..(MT)"){
-            pnormal = 4;    
+        if(plnormal =="Com uso da multimidia, internet e toalhas..(MT)"){
+            pnormal = 4;  
         }
-        
+       
         //Plano vegetariano
         if (plvegetariano ==""){
             pvegetariano = 0;    
         }
         if (plvegetariano =="Normal(Sem Toalhas)"){
-            pvegetariano = 1;    
+            pvegetariano = 1;  
         }
         if (plvegetariano =="Normal(com toalhas)"){
             pvegetariano = 2;    
@@ -791,10 +793,9 @@ public class NovoCadastro extends javax.swing.JFrame {
         if (plinternos =="Uso do auditório ou Sala Yoga por externos"){
             pinternos = 4;    
         }
-
-        
-        //txtValor.setText(Float.toString(valor));
-        
+        float valor = pnormal + pvegetariano + pdiversos + pinternos;
+        txtValor.setText(String.valueOf(valor));
+      
     }//GEN-LAST:event_cmbNormalActionPerformed
         
     /**
