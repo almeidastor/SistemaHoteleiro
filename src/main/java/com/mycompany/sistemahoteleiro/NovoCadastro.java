@@ -259,6 +259,11 @@ public class NovoCadastro extends javax.swing.JFrame {
         pVegetariana.setLayout(null);
 
         cmbVegetariana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Normal(Sem Toalhas)", "Normal(com toalhas)", "Com uso de Multimidia", "Com uso de Internet", "Com uso da Multimidia e Internet", "Com uso da multimidia, internet e toalhas..(MT)" }));
+        cmbVegetariana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbVegetarianaActionPerformed(evt);
+            }
+        });
         pVegetariana.add(cmbVegetariana);
         cmbVegetariana.setBounds(10, 18, 320, 27);
 
@@ -271,6 +276,11 @@ public class NovoCadastro extends javax.swing.JFrame {
         pDiversos.setLayout(null);
 
         cmbDiversos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Econtros Externos sem refeição", "Encontros externos com refeição", "Encontros externos só com o uso do auditório", "Encontros externos com o auditório e refeição", "Diaria dos bispos-Encontro Latino americano. Completo", "Diaria dos empresarios", "Retiro das irmãs franciscanas de bonlanden", "yoga- formação. Prof Kalidas(sem toalha e quarto duplo)", "yoga- formação. Prof Kalidas(sem toalha e quarto individual)", "Especial. Instituto ecosocia(Formação...)" }));
+        cmbDiversos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDiversosActionPerformed(evt);
+            }
+        });
         pDiversos.add(cmbDiversos);
         cmbDiversos.setBounds(10, 18, 320, 27);
 
@@ -283,6 +293,11 @@ public class NovoCadastro extends javax.swing.JFrame {
         pInternos.setLayout(null);
 
         cmbInternos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "café da manha,cafezinho,almoço,lanche da tarde e auditório", "Interno com multimidia", "Dieta normal(Sem toalhas)", "Dieta normal(Com toalhas)", "Dieta Vegetariana(Sem toalhas)", "Dieta Vegetariana(Com toalhas)", "Diaria dos Bispos- Encontro latino americano.(Completo)", "Dieta dos Empresários", "Almoço individual (Comum) 23,00", "Almoço individual (Aniversarios)30,00", "Café da Manhã", "Jantar", "Cafezinho M e lanche da tarde 9,00 + 11,00", "espaço livre(Casa da Juventude)", "Dormir", "Uso do auditório ou Sala Yoga por externos" }));
+        cmbInternos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbInternosActionPerformed(evt);
+            }
+        });
         pInternos.add(cmbInternos);
         cmbInternos.setBounds(10, 18, 320, 27);
 
@@ -653,150 +668,295 @@ public class NovoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIDComponentShown
 
     private void cmbNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNormalActionPerformed
-     float pnormal = 0;
-     float pvegetariano = 0;
-     float pdiversos = 0;
-     float pinternos = 0;
      
-     
+
+       
+        float pnormal = 0;
+      
+
+    
      String plnormal = (String) cmbNormal.getSelectedItem();
-     String plvegetariano = (String) cmbVegetariana.getSelectedItem();
-     String pldiversos = (String) cmbDiversos.getSelectedItem();
-     String plinternos = (String) cmbInternos.getSelectedItem();
      
-     
-        //Plano normal
+
         if (plnormal ==""){
             pnormal = 0;
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plnormal =="Normal(Sem Toalhas)"){
-            pnormal = 1;    
+            pnormal = 109;
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plnormal =="Normal(com toalhas)"){
-            pnormal = 2;    
+            pnormal = 118;
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plnormal =="Com uso de Multimidia"){
-            pnormal = 3;    
+            pnormal = 121;
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if(plnormal =="Com uso da multimidia, internet e toalhas..(MT)"){
-            pnormal = 4;  
-        }
+            pnormal = 125;
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
+        }     
+        
        
-        //Plano vegetariano
-        if (plvegetariano ==""){
-            pvegetariano = 0;    
+        txtValor.setText(String.valueOf(pnormal));
+
+    }//GEN-LAST:event_cmbNormalActionPerformed
+
+    private void cmbVegetarianaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVegetarianaActionPerformed
+        float pvegetariano = 0;
+       
+               
+       String plvegetariano = (String) cmbVegetariana.getSelectedItem();
+       
+       if (plvegetariano ==""){
+            pvegetariano = 0; 
+       cmbNormal.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
+            
         }
         if (plvegetariano =="Normal(Sem Toalhas)"){
-            pvegetariano = 1;  
+            pvegetariano = 138; 
+       cmbNormal.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plvegetariano =="Normal(com toalhas)"){
-            pvegetariano = 2;    
+            pvegetariano = 145;  
+       cmbNormal.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plvegetariano =="Com uso de Multimidia"){
-            pvegetariano = 3;    
+            pvegetariano = 140;
+       cmbNormal.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plvegetariano =="Com uso de Internet"){
-            pvegetariano = 4;    
+            pvegetariano = 140;   
+       cmbNormal.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plvegetariano =="Com uso da Multimidia e Internet"){
-            pvegetariano = 4;    
+            pvegetariano = 145;  
+       cmbNormal.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (plvegetariano =="Com uso da multimidia, internet e toalhas..(MT)"){
-            pvegetariano = 4;    
+            pvegetariano = 150;    
+       cmbNormal.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         
-        //Plano Encontro Diversos
+        
+        txtValor.setText(String.valueOf(pvegetariano));
+
+    }//GEN-LAST:event_cmbVegetarianaActionPerformed
+
+    private void cmbDiversosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDiversosActionPerformed
+        float pdiversos = 0;
+        
+       
+       String pldiversos = (String) cmbDiversos.getSelectedItem();
+        
         if (pldiversos ==""){
-            pdiversos = 0;    
+            pdiversos = 0;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Econtros Externos sem refeição"){
-            pdiversos = 1;    
+            pdiversos = 16;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Encontros externos com refeição"){
-            pdiversos = 2;    
+            pdiversos = 43;   
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Encontros externos só com o uso do auditório"){
-            pdiversos = 3;    
+            pdiversos = 26; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Encontros externos com o auditório e refeição"){
-            pdiversos = 4;    
+            pdiversos = 53; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Diaria dos bispos-Encontro Latino americano. Completo"){
-            pdiversos = 4;    
+            pdiversos = 139;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Diaria dos empresarios"){
-            pdiversos = 4;    
+            pdiversos = 190;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Retiro das irmãs franciscanas de bonlanden"){
-            pdiversos = 4;    
+            pdiversos = 103;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="yoga- formação. Prof Kalidas(sem toalha e quarto duplo)"){
-            pdiversos = 4;    
+            pdiversos = 119; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="yoga- formação. Prof Kalidas(sem toalha e quarto individual)"){
-            pdiversos = 4;    
+            pdiversos = 134;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         if (pldiversos =="Especial. Instituto ecosocia(Formação...)"){
-            pdiversos = 4;    
+            pdiversos = 207; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbInternos.setSelectedIndex(0);
         }
         
+        txtValor.setText(String.valueOf(pdiversos));
+    }//GEN-LAST:event_cmbDiversosActionPerformed
+
+    private void cmbInternosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbInternosActionPerformed
+        float pinternos = 0;
         
-        //Plano Encontros Internos com
+       
+       String plinternos = (String) cmbInternos.getSelectedItem();
+        
+        
         if (plinternos ==""){
-            pinternos = 0;    
+            pinternos = 0;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="café da manha,cafezinho,almoço,lanche da tarde e auditório"){
-            pinternos = 1;    
+            pinternos = 99;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Interno com multimidia"){
-            pinternos = 2;    
+            pinternos = 102; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Dieta normal(Sem toalhas)"){
-            pinternos = 3;    
+            pinternos = 109;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);  
         }
         if (plinternos =="Dieta normal(Com toalhas)"){
-            pinternos = 4;    
+            pinternos = 118;    
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Dieta Vegetariana(Sem toalhas)"){
-            pinternos = 4;    
+            pinternos = 138;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Dieta Vegetariana(Com toalhas)"){
-            pinternos = 4;    
+            pinternos = 145;  
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Diaria dos Bispos- Encontro latino americano.(Completo)"){
-            pinternos = 4;    
+            pinternos = 139;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Dieta dos Empresários"){
-            pinternos = 4;    
+            pinternos = 290; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Almoço individual (Comum) 23,00"){
-            pinternos = 4;    
+            pinternos = 28; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Almoço individual (Aniversarios)30,00"){
-            pinternos = 4;    
+            pinternos = 30;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Café da Manhã"){
-            pinternos = 4;    
+            pinternos = 25;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Jantar"){
-            pinternos = 4;    
+            pinternos = 26;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Cafezinho M e lanche da tarde 9,00 + 11,00"){
-            pinternos = 4;    
+            pinternos = 25; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="espaço livre(Casa da Juventude)"){
-            pinternos = 4;    
+            pinternos = 16;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
         if (plinternos =="Dormir"){
-            pinternos = 4;    
+            pinternos = 67; 
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);  
         }
         if (plinternos =="Uso do auditório ou Sala Yoga por externos"){
-            pinternos = 4;    
+            pinternos = 26;
+       cmbNormal.setSelectedIndex(0);
+       cmbVegetariana.setSelectedIndex(0);
+       cmbDiversos.setSelectedIndex(0);
         }
-        float valor = pnormal + pvegetariano + pdiversos + pinternos;
-        txtValor.setText(String.valueOf(valor));
-      
-    }//GEN-LAST:event_cmbNormalActionPerformed
+        
+        txtValor.setText(String.valueOf(pinternos));
+    }//GEN-LAST:event_cmbInternosActionPerformed
         
     /**
      * @param args the command line arguments
