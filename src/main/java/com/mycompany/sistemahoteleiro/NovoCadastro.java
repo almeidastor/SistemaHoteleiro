@@ -1,5 +1,7 @@
 package com.mycompany.sistemahoteleiro;
 
+import DAO.ClienteDAO;
+import DTO.ClienteDTO;
 import static java.awt.SystemColor.text;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -12,6 +14,7 @@ import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -55,8 +58,9 @@ public class NovoCadastro extends javax.swing.JFrame {
         long days = hours/24;
         if(days == 0 ){
             days ++;
+        } if(days < 0){
+            JOptionPane.showMessageDialog(null, "Data de Saída não pode ser inferior a Data de Entrada");
         }
-        txtNQuartos.setText(Long.toString(days));
         
         // Calculando Plano
               
@@ -153,7 +157,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         }
          
       
-       //Plano Vegetariano  
+       //Plano Diversos  
         if (pldiversos ==""){
             pdiversos = 0;
        cmbNormal.setSelectedIndex(0);
@@ -332,7 +336,38 @@ public class NovoCadastro extends javax.swing.JFrame {
                                 
     }
     
-    
+    public void Limpar(){
+    txtEntrada.setDate(new Date());
+    txtEntrada1.setDate(new Date());
+    txtResponsavel.setText(null);
+    txtGrupo.setText(null);
+    txtTelefone.setText(null);
+    txtEmail.setText(null);
+    cmbCategoria.setSelectedItem(null);
+    cmbOrientador.setText(null);
+    txtNPessoas.setText("1");
+    txtNQuartos.setText(null);
+    jTextArea1.setText(null);
+    txtValor.setText(null);
+    cbVista.setSelected(false);
+    cbTransferencia.setSelected(false);
+    cbCheque.setSelected(false);
+    cbCredito.setSelected(false);
+    cbReserva.setSelected(false);
+    if(cmbNormal.getSelectedItem()!=""){
+        cmbNormal.setSelectedIndex(0);
+    }
+    if(cmbVegetariana.getSelectedItem()!=""){
+        cmbVegetariana.setSelectedIndex(0);
+    }
+    if(cmbDiversos.getSelectedItem()!=""){
+        cmbDiversos.setSelectedIndex(0);
+    }
+    if(cmbInternos.getSelectedItem()!=""){
+        cmbInternos.setSelectedIndex(0);
+    }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -664,6 +699,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckout.add(lblValor);
         lblValor.setBounds(60, 70, 40, 27);
 
+        txtValor.setText("00.0");
         txtValor.setAlignmentX(0.0F);
         txtValor.setAlignmentY(0.0F);
         txtValor.setAutoscrolls(false);
@@ -973,7 +1009,7 @@ public class NovoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+      Limpar();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void cmbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoriaActionPerformed
@@ -1026,7 +1062,15 @@ public class NovoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNPessoasFocusLost
 
     private void txtNPessoasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNPessoasKeyPressed
-
+       float pessoasn = Integer.parseInt(txtNPessoas.getText());
+       String pessoasn1 = txtNPessoas.getText();
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+           if(pessoasn < 1){
+              JOptionPane.showMessageDialog(null, "O número de pessoas não deve ser inferior a 1");
+              txtNPessoas.setText("1");
+              Calculate();
+           } 
+        }
     }//GEN-LAST:event_txtNPessoasKeyPressed
 
     private void txtNPessoasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNPessoasMouseExited
@@ -1044,8 +1088,80 @@ public class NovoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNQuartosActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-
+    
+    Date dt_checkin,
+    dt_checkout;
+    String id_Client,
+    responsavel,
+    id_grupo,
+    telefone,
+    email,
+    categoria,
+    orientador,
+    n_pessoas,
+    n_quartos,
+    pnormal,
+    pvegetariano,
+    pdiversos,
+    pinternos,
+    observacoes,
+    valor;
+    boolean ckbvista,
+    ckbtransferencia,
+    ckbcheque,
+    ckbcredito,
+    ckb50;
         
+    
+    id_Client = txtID.getText();
+    dt_checkin = txtEntrada.getDate();
+    dt_checkout = txtEntrada1.getDate();
+    responsavel = txtResponsavel.getText();
+    id_grupo = txtGrupo.getText();
+    telefone = txtTelefone.getText();
+    email = txtEmail.getText();
+    categoria = cmbCategoria.getSelectedItem().toString();
+    orientador = cmbOrientador.getText();
+    n_pessoas = txtNPessoas.getText();
+    n_quartos = txtNQuartos.getText();
+    pnormal = cmbNormal.getSelectedItem().toString();
+    pvegetariano = cmbVegetariana.getSelectedItem().toString();
+    pdiversos = cmbDiversos.getSelectedItem().toString();
+    pinternos = cmbInternos.getSelectedItem().toString();
+    observacoes = jTextArea1.getText();
+    valor = txtValor.getText();
+    ckbvista = cbVista.isSelected();
+    ckbtransferencia = cbTransferencia.isSelected();
+    ckbcheque = cbCheque.isSelected();
+    ckbcredito = cbCredito.isSelected();
+    ckb50 = cbReserva.isSelected();
+    
+    ClienteDTO clientedto = new ClienteDTO();
+    clientedto.setId_Client(id_Client);
+    clientedto.setDt_checkin(dt_checkin);
+    clientedto.setDt_checkout(dt_checkout);
+    clientedto.setresponsavel(responsavel);
+    clientedto.setId_grupo(id_grupo);
+    clientedto.setTelefone(telefone);
+    clientedto.setEmail(email);
+    clientedto.setCategoria(categoria);
+    clientedto.setOrientador(orientador);
+    clientedto.setN_pessoas(n_pessoas);
+    clientedto.setN_quartos(n_quartos);
+    clientedto.setPnormal(pnormal);
+    clientedto.setPvegetariano(pvegetariano);
+    clientedto.setPdiversos(pdiversos);
+    clientedto.setPinternos(pinternos);
+    clientedto.setObservacoes(observacoes);
+    clientedto.setValor(valor);
+    clientedto.setCkbvista(ckbvista);
+    clientedto.setCkbtransferencia(ckbtransferencia);
+    clientedto.setCkbcheque(ckbcheque);
+    clientedto.setCkbcredito(ckbcredito);
+    clientedto.setCkb50(ckb50);
+    
+    ClienteDAO clientedao = new ClienteDAO();
+    clientedao.cadastrarCliente(clientedto);
     }//GEN-LAST:event_btnEnviarActionPerformed
         
     /**
