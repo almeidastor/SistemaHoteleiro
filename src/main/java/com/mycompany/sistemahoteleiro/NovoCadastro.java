@@ -1,7 +1,6 @@
 package com.mycompany.sistemahoteleiro;
 
-import DAO.ClienteDAO;
-import DTO.ClienteDTO;
+
 import static java.awt.SystemColor.text;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -13,8 +12,15 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -1089,79 +1095,43 @@ public class NovoCadastro extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
     
-    Date dt_checkin,
-    dt_checkout;
-    String id_Client,
-    responsavel,
-    id_grupo,
-    telefone,
-    email,
-    categoria,
-    orientador,
-    n_pessoas,
-    n_quartos,
-    pnormal,
-    pvegetariano,
-    pdiversos,
-    pinternos,
-    observacoes,
-    valor;
-    boolean ckbvista,
-    ckbtransferencia,
-    ckbcheque,
-    ckbcredito,
-    ckb50;
+        try {
+            String idClient = txtID.getText();
+            Date dtCheckin = txtEntrada.getDate();
+            Date dtCheckout = txtEntrada1.getDate();
+            
+            String responsavel = txtResponsavel.getText();
+            String grupo = txtGrupo.getText();
+            String telefone = txtTelefone.getText();
+            String email = txtEmail.getText();
+            int categoria = (int) cmbCategoria.getSelectedIndex();
+            String orientador = cmbOrientador.getText();
+            String numpessoas = txtNPessoas.getText();
+            String numquartos = txtNQuartos.getText();
+            String diNormal = (String) cmbNormal.getSelectedItem();
+            String diVegetariana = (String) cmbVegetariana.getSelectedItem();
+            String enDiversos = (String) cmbDiversos.getSelectedItem();
+            String enInternos = (String) cmbInternos.getSelectedItem();
+            String obs = jTextArea1.getText();
+            String val = txtValor.getText();
+            boolean chkVista = cbVista.isSelected();
+            boolean chkTransf = cbTransferencia.isSelected();
+            boolean chkCheque = cbCheque.isSelected();
+            boolean chkCredito = cbCredito.isSelected();
+            boolean chkReserva = cbReserva.isSelected();
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
+            PreparedStatement ps = conn.prepareStatement("insert into cadastro(id_cliente, dt_checkin, dt_checkout, responsavel, id_grupo, telefone, email, categoria, orientador, n_pessoas, n_quartos, pnormal, pvegetariano, pdiversos, pinternos, observacoes, valor, ckbvista, ckbtransferencia, ckbcheque, ckbcredito, ckb50)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, idClient);
+            
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(NovoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     
-    id_Client = txtID.getText();
-    dt_checkin = txtEntrada.getDate();
-    dt_checkout = txtEntrada1.getDate();
-    responsavel = txtResponsavel.getText();
-    id_grupo = txtGrupo.getText();
-    telefone = txtTelefone.getText();
-    email = txtEmail.getText();
-    categoria = cmbCategoria.getSelectedItem().toString();
-    orientador = cmbOrientador.getText();
-    n_pessoas = txtNPessoas.getText();
-    n_quartos = txtNQuartos.getText();
-    pnormal = cmbNormal.getSelectedItem().toString();
-    pvegetariano = cmbVegetariana.getSelectedItem().toString();
-    pdiversos = cmbDiversos.getSelectedItem().toString();
-    pinternos = cmbInternos.getSelectedItem().toString();
-    observacoes = jTextArea1.getText();
-    valor = txtValor.getText();
-    ckbvista = cbVista.isSelected();
-    ckbtransferencia = cbTransferencia.isSelected();
-    ckbcheque = cbCheque.isSelected();
-    ckbcredito = cbCredito.isSelected();
-    ckb50 = cbReserva.isSelected();
-    
-    ClienteDTO clientedto = new ClienteDTO();
-    clientedto.setId_Client(id_Client);
-    clientedto.setDt_checkin(dt_checkin);
-    clientedto.setDt_checkout(dt_checkout);
-    clientedto.setresponsavel(responsavel);
-    clientedto.setId_grupo(id_grupo);
-    clientedto.setTelefone(telefone);
-    clientedto.setEmail(email);
-    clientedto.setCategoria(categoria);
-    clientedto.setOrientador(orientador);
-    clientedto.setN_pessoas(n_pessoas);
-    clientedto.setN_quartos(n_quartos);
-    clientedto.setPnormal(pnormal);
-    clientedto.setPvegetariano(pvegetariano);
-    clientedto.setPdiversos(pdiversos);
-    clientedto.setPinternos(pinternos);
-    clientedto.setObservacoes(observacoes);
-    clientedto.setValor(valor);
-    clientedto.setCkbvista(ckbvista);
-    clientedto.setCkbtransferencia(ckbtransferencia);
-    clientedto.setCkbcheque(ckbcheque);
-    clientedto.setCkbcredito(ckbcredito);
-    clientedto.setCkb50(ckb50);
-    
-    ClienteDAO clientedao = new ClienteDAO();
-    clientedao.cadastrarCliente(clientedto);
     }//GEN-LAST:event_btnEnviarActionPerformed
         
     /**
