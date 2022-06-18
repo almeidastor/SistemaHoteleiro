@@ -1095,6 +1095,7 @@ public class NovoCadastro extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
     
+        
         try {
             String idClient = txtID.getText();
             Date dtCheckin = txtEntrada.getDate();
@@ -1122,8 +1123,34 @@ public class NovoCadastro extends javax.swing.JFrame {
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
-            PreparedStatement ps = conn.prepareStatement("insert into cadastro(id_cliente, dt_checkin, dt_checkout, responsavel, id_grupo, telefone, email, categoria, orientador, n_pessoas, n_quartos, pnormal, pvegetariano, pdiversos, pinternos, observacoes, valor, ckbvista, ckbtransferencia, ckbcheque, ckbcredito, ckb50)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("insert into cadastro(responsavel, id_grupo, telefone, email, categoria, orientador, n_pessoas, n_quartos, pnormal, pvegetariano, pdiversos, pinternos, observacoes, valor, ckbvista, ckbtransferencia, ckbcheque, ckbcredito, ckb50)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, idClient);
+            ps.setDate(2, dtCheckin);
+            ps.setDate(3, dtCheckout);
+         
+            ps.setString(4,responsavel);
+            ps.setString(5,grupo);
+            ps.setString(6,telefone);
+            ps.setString(7,email);
+            ps.setString(8,categoria);
+            ps.setString(9,orientador);
+            ps.setString(10,numpessoas);
+            ps.setString(11,numquartos);
+            ps.setString(12,diNormal);
+            ps.setString(13,diVegetariana);
+            ps.setString(14,enDiversos);
+            ps.setString(15,enInternos);
+            ps.setString(16,obs);
+            ps.setString(17,val);
+            ps.setString(18,chkVista);
+            ps.setString(19,chkTransf);
+            ps.setString(20,chkCheque);
+            ps.setString(21,chkCredito);
+            ps.setString(22,chkReserva);
+
+            
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this,"certo");
             
             
             
