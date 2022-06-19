@@ -1105,7 +1105,7 @@ public class NovoCadastro extends javax.swing.JFrame {
             String grupo = txtGrupo.getText();
             String telefone = txtTelefone.getText();
             String email = txtEmail.getText();
-            int categoria = (int) cmbCategoria.getSelectedIndex();
+            String categoria = (String) cmbCategoria.getSelectedItem();
             String orientador = cmbOrientador.getText();
             String numpessoas = txtNPessoas.getText();
             String numquartos = txtNQuartos.getText();
@@ -1121,12 +1121,15 @@ public class NovoCadastro extends javax.swing.JFrame {
             boolean chkCredito = cbCredito.isSelected();
             boolean chkReserva = cbReserva.isSelected();
             
+            java.sql.Date datedate = new java.sql.Date (dtCheckin.getTime());
+            java.sql.Date datedate1 = new java.sql.Date (dtCheckin.getTime());
+            
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
-            PreparedStatement ps = conn.prepareStatement("insert into cadastro(responsavel, id_grupo, telefone, email, categoria, orientador, n_pessoas, n_quartos, pnormal, pvegetariano, pdiversos, pinternos, observacoes, valor, ckbvista, ckbtransferencia, ckbcheque, ckbcredito, ckb50)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("insert into cadastro(id_cliente, dt_checkin, dt_checkout, responsavel, id_grupo, telefone, email, categoria, orientador, n_pessoas, n_quartos, pnormal, pvegetariano, pdiversos, pinternos, observacoes, valor, ckbvista, ckbtransferencia, ckbcheque, ckbcredito, ckb50)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, idClient);
-            ps.setDate(2, dtCheckin);
-            ps.setDate(3, dtCheckout);
+            ps.setDate(2, datedate);
+            ps.setDate(3, datedate1);
          
             ps.setString(4,responsavel);
             ps.setString(5,grupo);
@@ -1142,15 +1145,15 @@ public class NovoCadastro extends javax.swing.JFrame {
             ps.setString(15,enInternos);
             ps.setString(16,obs);
             ps.setString(17,val);
-            ps.setString(18,chkVista);
-            ps.setString(19,chkTransf);
-            ps.setString(20,chkCheque);
-            ps.setString(21,chkCredito);
-            ps.setString(22,chkReserva);
+            ps.setBoolean(18,chkVista);
+            ps.setBoolean(19,chkTransf);
+            ps.setBoolean(20,chkCheque);
+            ps.setBoolean(21,chkCredito);
+            ps.setBoolean(22,chkReserva);
 
             
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(this,"certo");
+            JOptionPane.showMessageDialog(this,"Cadastro adicionado com sucesso!!!");
             
             
             
