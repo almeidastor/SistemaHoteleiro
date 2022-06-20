@@ -21,6 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -66,6 +67,8 @@ public class NovoCadastro extends javax.swing.JFrame {
             days ++;
         } if(days < 0){
             JOptionPane.showMessageDialog(null, "Data de Saída não pode ser inferior a Data de Entrada");
+            txtEntrada1.setDate(txtEntrada.getDate());
+            days = 1;
         }
         
         // Calculando Plano
@@ -822,6 +825,11 @@ public class NovoCadastro extends javax.swing.JFrame {
         btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(255, 0, 0));
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnEnviar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEnviar.setText("Enviar");
@@ -1000,18 +1008,214 @@ public class NovoCadastro extends javax.swing.JFrame {
 
     private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
         // TODO add your handling code here:
+        try {          
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM cadastro WHERE dt_checkin LIKE ?");
+            Date dtCheckin = txtEntrada.getDate();
+            java.sql.Date datedate = new java.sql.Date (dtCheckin.getTime());
+            ps.setDate(1, datedate);
+            ps.execute();
+                        
+            ResultSet rs = ps.executeQuery();
+            
+             if(rs.next()== true) {  
+                    txtID.setText(rs.getString("id_cliente"));
+                    txtResponsavel.setText(rs.getString("responsavel"));
+                    txtEntrada1.setDate(rs.getDate("dt_checkout"));
+                    txtGrupo.setText(rs.getString("id_grupo"));
+                    txtTelefone.setText(rs.getString("telefone"));
+                    txtEmail.setText(rs.getString("email"));
+                    cmbCategoria.setSelectedItem(rs.getString("categoria"));
+                    cmbOrientador.setText(rs.getString("orientador"));
+                    txtNPessoas.setText(rs.getString("n_pessoas"));
+                    txtNQuartos.setText(rs.getString("n_quartos"));
+                    cmbNormal.setSelectedItem(rs.getString("pnormal"));
+                    cmbVegetariana.setSelectedItem(rs.getString("pvegetariano"));
+                    cmbDiversos.setSelectedItem(rs.getString("pdiversos"));
+                    cmbInternos.setSelectedItem(rs.getString("pinternos"));
+                    jTextArea1.setText(rs.getString("observacoes"));
+                    txtValor.setText(rs.getString("valor"));
+                    cbVista.setSelected(rs.getBoolean("ckbvista"));
+                    cbTransferencia.setSelected(rs.getBoolean("ckbtransferencia"));
+                    cbCheque.setSelected(rs.getBoolean("ckbcheque"));
+                    cbCredito.setSelected(rs.getBoolean("ckbcredito"));
+                    cbReserva.setSelected(rs.getBoolean("ckb50"));
+                  }else {
+             JOptionPane.showMessageDialog(null, "Não foi possivel encontrar esse cadastro");
+             } 
+             
+             ps.close();
+             conn.close();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(NovoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBusca1ActionPerformed
 
     private void btnBuscaGrupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaGrupActionPerformed
         // TODO add your handling code here:
+        try { 
+        Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM cadastro WHERE id_grupo LIKE ?");
+            ps.setString(1, txtGrupo.getText());
+            ps.execute();
+                        
+            ResultSet rs = ps.executeQuery();
+            
+             if(rs.next()== true) {  
+                    txtID.setText(rs.getString("id_cliente"));
+                    txtEntrada.setDate(rs.getDate("dt_checkin"));
+                    txtEntrada1.setDate(rs.getDate("dt_checkout"));
+                    txtResponsavel.setText(rs.getString("responsavel"));
+                    txtGrupo.setText(rs.getString("id_grupo"));
+                    txtTelefone.setText(rs.getString("telefone"));
+                    txtEmail.setText(rs.getString("email"));
+                    cmbCategoria.setSelectedItem(rs.getString("categoria"));
+                    cmbOrientador.setText(rs.getString("orientador"));
+                    txtNPessoas.setText(rs.getString("n_pessoas"));
+                    txtNQuartos.setText(rs.getString("n_quartos"));
+                    cmbNormal.setSelectedItem(rs.getString("pnormal"));
+                    cmbVegetariana.setSelectedItem(rs.getString("pvegetariano"));
+                    cmbDiversos.setSelectedItem(rs.getString("pdiversos"));
+                    cmbInternos.setSelectedItem(rs.getString("pinternos"));
+                    jTextArea1.setText(rs.getString("observacoes"));
+                    txtValor.setText(rs.getString("valor"));
+                    cbVista.setSelected(rs.getBoolean("ckbvista"));
+                    cbTransferencia.setSelected(rs.getBoolean("ckbtransferencia"));
+                    cbCheque.setSelected(rs.getBoolean("ckbcheque"));
+                    cbCredito.setSelected(rs.getBoolean("ckbcredito"));
+                    cbReserva.setSelected(rs.getBoolean("ckb50"));
+                  } else {
+             JOptionPane.showMessageDialog(null, "Não foi possivel encontrar esse cadastro");
+             }
+             
+             ps.close();
+             conn.close();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(NovoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnBuscaGrupActionPerformed
 
     private void btnBuscaRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaRespActionPerformed
         // TODO add your handling code here:
+       try {          
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM cadastro WHERE responsavel LIKE ? ");
+            ps.setString(1, txtResponsavel.getText());
+            ps.execute();
+                        
+            ResultSet rs = ps.executeQuery();
+            
+             if(rs.next()== true) {  
+                    txtID.setText(rs.getString("id_cliente"));
+                    txtEntrada.setDate(rs.getDate("dt_checkin"));
+                    txtEntrada1.setDate(rs.getDate("dt_checkout"));
+                    txtResponsavel.setText(rs.getString("responsavel"));
+                    txtGrupo.setText(rs.getString("id_grupo"));
+                    txtTelefone.setText(rs.getString("telefone"));
+                    txtEmail.setText(rs.getString("email"));
+                    cmbCategoria.setSelectedItem(rs.getString("categoria"));
+                    cmbOrientador.setText(rs.getString("orientador"));
+                    txtNPessoas.setText(rs.getString("n_pessoas"));
+                    txtNQuartos.setText(rs.getString("n_quartos"));
+                    cmbNormal.setSelectedItem(rs.getString("pnormal"));
+                    cmbVegetariana.setSelectedItem(rs.getString("pvegetariano"));
+                    cmbDiversos.setSelectedItem(rs.getString("pdiversos"));
+                    cmbInternos.setSelectedItem(rs.getString("pinternos"));
+                    jTextArea1.setText(rs.getString("observacoes"));
+                    txtValor.setText(rs.getString("valor"));
+                    cbVista.setSelected(rs.getBoolean("ckbvista"));
+                    cbTransferencia.setSelected(rs.getBoolean("ckbtransferencia"));
+                    cbCheque.setSelected(rs.getBoolean("ckbcheque"));
+                    cbCredito.setSelected(rs.getBoolean("ckbcredito"));
+                    cbReserva.setSelected(rs.getBoolean("ckb50"));
+                  } 
+              else {
+             JOptionPane.showMessageDialog(null, "Não foi possivel encontrar esse cadastro");
+             }
+             
+             ps.close();
+             conn.close();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(NovoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBuscaRespActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
+     try {
+            String idClient = txtID.getText();
+            Date dtCheckin = txtEntrada.getDate();
+            Date dtCheckout = txtEntrada1.getDate();
+            
+            String responsavel = txtResponsavel.getText();
+            String grupo = txtGrupo.getText();
+            String telefone = txtTelefone.getText();
+            String email = txtEmail.getText();
+            String categoria = (String) cmbCategoria.getSelectedItem();
+            String orientador = cmbOrientador.getText();
+            String numpessoas = txtNPessoas.getText();
+            String numquartos = txtNQuartos.getText();
+            String diNormal = (String) cmbNormal.getSelectedItem();
+            String diVegetariana = (String) cmbVegetariana.getSelectedItem();
+            String enDiversos = (String) cmbDiversos.getSelectedItem();
+            String enInternos = (String) cmbInternos.getSelectedItem();
+            String obs = jTextArea1.getText();
+            String val = txtValor.getText();
+            boolean chkVista = cbVista.isSelected();
+            boolean chkTransf = cbTransferencia.isSelected();
+            boolean chkCheque = cbCheque.isSelected();
+            boolean chkCredito = cbCredito.isSelected();
+            boolean chkReserva = cbReserva.isSelected();
+            String idClient2 = txtID.getText();
+            
+            java.sql.Date datedate = new java.sql.Date (dtCheckin.getTime());
+            java.sql.Date datedate1 = new java.sql.Date (dtCheckin.getTime());
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
+            PreparedStatement ps = conn.prepareStatement("UPDATE cadastro SET id_cliente=?, dt_checkin =?, dt_checkout=?, responsavel=?, id_grupo=?, telefone=?, email=?, categoria=?, orientador=?, n_pessoas=?, n_quartos=?, pnormal=?, pvegetariano=?, pdiversos=?, pinternos=?, observacoes=?, valor=?, ckbvista=?, ckbtransferencia=?, ckbcheque=?, ckbcredito=?, ckb50=? where id_cliente=?");
+            ps.setString(1, idClient);
+            ps.setDate(2, datedate);
+            ps.setDate(3, datedate1);
+         
+            ps.setString(4,responsavel);
+            ps.setString(5,grupo);
+            ps.setString(6,telefone);
+            ps.setString(7,email);
+            ps.setString(8,categoria);
+            ps.setString(9,orientador);
+            ps.setString(10,numpessoas);
+            ps.setString(11,numquartos);
+            ps.setString(12,diNormal);
+            ps.setString(13,diVegetariana);
+            ps.setString(14,enDiversos);
+            ps.setString(15,enInternos);
+            ps.setString(16,obs);
+            ps.setString(17,val);
+            ps.setBoolean(18,chkVista);
+            ps.setBoolean(19,chkTransf);
+            ps.setBoolean(20,chkCheque);
+            ps.setBoolean(21,chkCredito);
+            ps.setBoolean(22,chkReserva);
+            ps.setString(23, idClient2);
+            
+
+            
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this,"Cadastro alterado com sucesso!!!");
+            
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(NovoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -1064,19 +1268,26 @@ public class NovoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNPessoasActionPerformed
 
     private void txtNPessoasFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNPessoasFocusLost
-     
+    float pessoasn = Integer.parseInt(txtNPessoas.getText().trim());
+        if(pessoasn < 1){
+              JOptionPane.showMessageDialog(null, "O número de pessoas não deve ser inferior a 1");
+              txtNPessoas.setText("1");
+              Calculate();
+           }              
+        Calculate();
     }//GEN-LAST:event_txtNPessoasFocusLost
 
     private void txtNPessoasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNPessoasKeyPressed
-       float pessoasn = Integer.parseInt(txtNPessoas.getText());
-       String pessoasn1 = txtNPessoas.getText();
+       int pessoasn = Integer.parseInt(txtNPessoas.getText().trim());
+       
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
            if(pessoasn < 1){
               JOptionPane.showMessageDialog(null, "O número de pessoas não deve ser inferior a 1");
               txtNPessoas.setText("1");
               Calculate();
-           } 
-        }
+           }              
+           }
+        Calculate();
     }//GEN-LAST:event_txtNPessoasKeyPressed
 
     private void txtNPessoasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNPessoasMouseExited
@@ -1094,7 +1305,27 @@ public class NovoCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNQuartosActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-    
+       DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+       Date entrada = null;
+       Date saida = null;
+       
+       try{
+           entrada = dateFormat.parse(dateFormat.format(txtEntrada.getDate()));
+           saida = dateFormat.parse(dateFormat.format(txtEntrada1.getDate()));
+       } catch (Exception e){
+           e.printStackTrace();
+       }
+       
+        long diff = saida.getTime()- entrada.getTime();
+        long hours = diff/(60*60*1000);
+        long days = hours/24;
+        if(days == 0 ){
+            days ++;
+        } if(days < 0){
+            JOptionPane.showMessageDialog(null, "Data de Saída não pode ser inferior a Data de Entrada");
+            txtEntrada1.setDate(txtEntrada.getDate());
+            days = 1;}
+        else{
         
         try {
             String idClient = txtID.getText();
@@ -1154,15 +1385,74 @@ public class NovoCadastro extends javax.swing.JFrame {
             
             ps.executeUpdate();
             JOptionPane.showMessageDialog(this,"Cadastro adicionado com sucesso!!!");
-            
+            Limpar();           
             
             
         } catch (Exception ex) {
             Logger.getLogger(NovoCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        }
     
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        int i = JOptionPane.showConfirmDialog(
+        null, 
+        "Deseja continuar?",
+        "sim",
+        JOptionPane.OK_CANCEL_OPTION
+        );
+        if(i == JOptionPane.YES_OPTION) {
+       
+        try {
+            String idClient = txtID.getText();
+            Date dtCheckin = txtEntrada.getDate();
+            Date dtCheckout = txtEntrada1.getDate();
+            
+            String responsavel = txtResponsavel.getText();
+            String grupo = txtGrupo.getText();
+            String telefone = txtTelefone.getText();
+            String email = txtEmail.getText();
+            String categoria = (String) cmbCategoria.getSelectedItem();
+            String orientador = cmbOrientador.getText();
+            String numpessoas = txtNPessoas.getText();
+            String numquartos = txtNQuartos.getText();
+            String diNormal = (String) cmbNormal.getSelectedItem();
+            String diVegetariana = (String) cmbVegetariana.getSelectedItem();
+            String enDiversos = (String) cmbDiversos.getSelectedItem();
+            String enInternos = (String) cmbInternos.getSelectedItem();
+            String obs = jTextArea1.getText();
+            String val = txtValor.getText();
+            boolean chkVista = cbVista.isSelected();
+            boolean chkTransf = cbTransferencia.isSelected();
+            boolean chkCheque = cbCheque.isSelected();
+            boolean chkCredito = cbCredito.isSelected();
+            boolean chkReserva = cbReserva.isSelected();
+            String idClient2 = txtID.getText();
+            
+            java.sql.Date datedate = new java.sql.Date (dtCheckin.getTime());
+            java.sql.Date datedate1 = new java.sql.Date (dtCheckin.getTime());
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
+            PreparedStatement ps = conn.prepareStatement("delete from cadastro where id_cliente=?");
+            ps.setString(1, idClient);
+                     
+            
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this,"Cadastro deletado com sucesso!!!");
+         
+        }
+            
+            
+            
+         catch (Exception ex) {
+            Logger.getLogger(NovoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }        
+    
+    }//GEN-LAST:event_btnExcluirActionPerformed
         
     /**
      * @param args the command line arguments
