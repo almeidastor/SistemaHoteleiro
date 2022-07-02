@@ -39,13 +39,16 @@ public class NovoCadastro extends javax.swing.JFrame {
      */
     public NovoCadastro() {
         initComponents();
-        this.setLocationRelativeTo(null);
         this.setSize(741, 600);
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Sistema Hoteleiro");
         
+        
     }
       
+    
+    
     public void Calculate(){
         
        //Calculando numero de dias
@@ -435,16 +438,18 @@ public class NovoCadastro extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnEnviar = new javax.swing.JButton();
-        lblBackground = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(new java.awt.Dimension(741, 650));
+        getContentPane().setLayout(null);
 
         pCheckin.setBackground(new java.awt.Color(255, 255, 255));
-        pCheckin.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        pCheckin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         pCheckin.setMinimumSize(new java.awt.Dimension(310, 44));
         pCheckin.setName(""); // NOI18N
+        pCheckin.setOpaque(false);
         pCheckin.setPreferredSize(new java.awt.Dimension(310, 45));
         pCheckin.setLayout(null);
 
@@ -454,6 +459,7 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckin.add(lblEntrada);
         lblEntrada.setBounds(5, 10, 94, 27);
 
+        btnBusca1.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca1.setText("🔎");
         btnBusca1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBusca1.setBorderPainted(false);
@@ -476,14 +482,22 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckin.add(txtEntrada);
         txtEntrada.setBounds(105, 10, 150, 27);
 
+        getContentPane().add(pCheckin);
+        pCheckin.setBounds(17, 8, 312, 50);
+
         lblResponsavel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblResponsavel.setText("Responsável:");
         lblResponsavel.setAlignmentY(0.0F);
+        getContentPane().add(lblResponsavel);
+        lblResponsavel.setBounds(17, 67, 80, 27);
 
         txtResponsavel.setAlignmentX(0.0F);
         txtResponsavel.setAlignmentY(0.0F);
         txtResponsavel.setAutoscrolls(false);
+        getContentPane().add(txtResponsavel);
+        txtResponsavel.setBounds(107, 67, 168, 27);
 
+        btnBuscaResp.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscaResp.setText("🔎");
         btnBuscaResp.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBuscaResp.setBorderPainted(false);
@@ -492,15 +506,22 @@ public class NovoCadastro extends javax.swing.JFrame {
                 btnBuscaRespActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscaResp);
+        btnBuscaResp.setBounds(282, 67, 43, 27);
 
         lblGrupo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblGrupo.setText("<html><body>Identificação do</br> Grupo:</body></html>");
         lblGrupo.setAlignmentY(0.0F);
+        getContentPane().add(lblGrupo);
+        lblGrupo.setBounds(17, 100, 80, 40);
 
         txtGrupo.setAlignmentX(0.0F);
         txtGrupo.setAlignmentY(0.0F);
         txtGrupo.setAutoscrolls(false);
+        getContentPane().add(txtGrupo);
+        txtGrupo.setBounds(107, 107, 168, 27);
 
+        btnBuscaGrup.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscaGrup.setText("🔎");
         btnBuscaGrup.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBuscaGrup.setBorderPainted(false);
@@ -509,28 +530,40 @@ public class NovoCadastro extends javax.swing.JFrame {
                 btnBuscaGrupActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscaGrup);
+        btnBuscaGrup.setBounds(281, 107, 43, 27);
 
         lblTelefone.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblTelefone.setText("Telefone:");
         lblTelefone.setAlignmentY(0.0F);
+        getContentPane().add(lblTelefone);
+        lblTelefone.setBounds(17, 146, 80, 27);
 
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        getContentPane().add(txtTelefone);
+        txtTelefone.setBounds(107, 146, 168, 27);
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblEmail.setText("E-mail:");
         lblEmail.setAlignmentY(0.0F);
+        getContentPane().add(lblEmail);
+        lblEmail.setBounds(17, 184, 62, 27);
 
         txtEmail.setAlignmentX(0.0F);
         txtEmail.setAlignmentY(0.0F);
         txtEmail.setAutoscrolls(false);
+        getContentPane().add(txtEmail);
+        txtEmail.setBounds(107, 184, 168, 27);
 
         lblCategoria.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCategoria.setText("Categoria:");
         lblCategoria.setAlignmentY(0.0F);
+        getContentPane().add(lblCategoria);
+        lblCategoria.setBounds(17, 219, 80, 27);
 
         cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trabalho", "Lazer", "Estudo", "Retiro", "Seminário", "Outros" }));
         cmbCategoria.setSelectedIndex(-1);
@@ -544,18 +577,26 @@ public class NovoCadastro extends javax.swing.JFrame {
                 cmbCategoriaActionPerformed(evt);
             }
         });
+        getContentPane().add(cmbCategoria);
+        cmbCategoria.setBounds(107, 219, 168, 27);
 
         lblOrientador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblOrientador.setText("<html><body>Orientador/</br> Conferencista:</body></html>");
         lblOrientador.setAlignmentY(0.0F);
+        getContentPane().add(lblOrientador);
+        lblOrientador.setBounds(17, 251, 80, 40);
 
         cmbOrientador.setAlignmentX(0.0F);
         cmbOrientador.setAlignmentY(0.0F);
         cmbOrientador.setAutoscrolls(false);
+        getContentPane().add(cmbOrientador);
+        cmbOrientador.setBounds(107, 258, 168, 27);
 
         lblNPessoas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNPessoas.setText("Nº de Pessoas:");
         lblNPessoas.setAlignmentY(0.0F);
+        getContentPane().add(lblNPessoas);
+        lblNPessoas.setBounds(385, 11, 90, 24);
 
         txtNPessoas.setText("1");
         txtNPessoas.setAlignmentX(0.0F);
@@ -581,10 +622,14 @@ public class NovoCadastro extends javax.swing.JFrame {
                 txtNPessoasKeyPressed(evt);
             }
         });
+        getContentPane().add(txtNPessoas);
+        txtNPessoas.setBounds(475, 11, 50, 24);
 
         lblNQuartos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNQuartos.setText("Nº de Quartos:");
         lblNQuartos.setAlignmentY(0.0F);
+        getContentPane().add(lblNQuartos);
+        lblNQuartos.setBounds(556, 11, 84, 24);
 
         txtNQuartos.setAlignmentX(0.0F);
         txtNQuartos.setAlignmentY(0.0F);
@@ -594,12 +639,15 @@ public class NovoCadastro extends javax.swing.JFrame {
                 txtNQuartosActionPerformed(evt);
             }
         });
+        getContentPane().add(txtNQuartos);
+        txtNQuartos.setBounds(644, 11, 50, 24);
 
         pNormal.setBackground(new java.awt.Color(255, 255, 255));
         pNormal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Diária Integral Normal", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         pNormal.setToolTipText("");
         pNormal.setMinimumSize(new java.awt.Dimension(310, 44));
         pNormal.setName(""); // NOI18N
+        pNormal.setOpaque(false);
         pNormal.setPreferredSize(new java.awt.Dimension(310, 45));
         pNormal.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -621,11 +669,15 @@ public class NovoCadastro extends javax.swing.JFrame {
         pNormal.add(cmbNormal);
         cmbNormal.setBounds(10, 18, 320, 27);
 
+        getContentPane().add(pNormal);
+        pNormal.setBounds(353, 41, 344, 55);
+
         pVegetariana.setBackground(new java.awt.Color(255, 255, 255));
         pVegetariana.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Diária Integral Vegetariana", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         pVegetariana.setToolTipText("");
         pVegetariana.setMinimumSize(new java.awt.Dimension(310, 44));
         pVegetariana.setName(""); // NOI18N
+        pVegetariana.setOpaque(false);
         pVegetariana.setPreferredSize(new java.awt.Dimension(310, 45));
         pVegetariana.setLayout(null);
 
@@ -638,11 +690,15 @@ public class NovoCadastro extends javax.swing.JFrame {
         pVegetariana.add(cmbVegetariana);
         cmbVegetariana.setBounds(10, 18, 320, 27);
 
+        getContentPane().add(pVegetariana);
+        pVegetariana.setBounds(353, 102, 344, 55);
+
         pDiversos.setBackground(new java.awt.Color(255, 255, 255));
         pDiversos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Encontros Diversos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         pDiversos.setToolTipText("");
         pDiversos.setMinimumSize(new java.awt.Dimension(310, 44));
         pDiversos.setName(""); // NOI18N
+        pDiversos.setOpaque(false);
         pDiversos.setPreferredSize(new java.awt.Dimension(310, 45));
         pDiversos.setLayout(null);
 
@@ -655,11 +711,15 @@ public class NovoCadastro extends javax.swing.JFrame {
         pDiversos.add(cmbDiversos);
         cmbDiversos.setBounds(10, 18, 320, 27);
 
+        getContentPane().add(pDiversos);
+        pDiversos.setBounds(353, 166, 344, 55);
+
         pInternos.setBackground(new java.awt.Color(255, 255, 255));
         pInternos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Encontros Internos com", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         pInternos.setToolTipText("");
         pInternos.setMinimumSize(new java.awt.Dimension(310, 44));
         pInternos.setName(""); // NOI18N
+        pInternos.setOpaque(false);
         pInternos.setPreferredSize(new java.awt.Dimension(310, 45));
         pInternos.setLayout(null);
 
@@ -672,11 +732,15 @@ public class NovoCadastro extends javax.swing.JFrame {
         pInternos.add(cmbInternos);
         cmbInternos.setBounds(10, 18, 320, 27);
 
+        getContentPane().add(pInternos);
+        pInternos.setBounds(353, 229, 344, 55);
+
         pObservacoes.setBackground(new java.awt.Color(255, 255, 255));
         pObservacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Observações", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         pObservacoes.setToolTipText("");
         pObservacoes.setMinimumSize(new java.awt.Dimension(310, 44));
         pObservacoes.setName(""); // NOI18N
+        pObservacoes.setOpaque(false);
         pObservacoes.setPreferredSize(new java.awt.Dimension(310, 45));
         pObservacoes.setLayout(null);
 
@@ -688,11 +752,15 @@ public class NovoCadastro extends javax.swing.JFrame {
         pObservacoes.add(txtObservacoes);
         txtObservacoes.setBounds(10, 20, 660, 50);
 
+        getContentPane().add(pObservacoes);
+        pObservacoes.setBounds(17, 297, 680, 79);
+
         pCheckout.setBackground(new java.awt.Color(255, 255, 255));
         pCheckout.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Saída", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         pCheckout.setToolTipText("");
         pCheckout.setMinimumSize(new java.awt.Dimension(310, 44));
         pCheckout.setName(""); // NOI18N
+        pCheckout.setOpaque(false);
         pCheckout.setPreferredSize(new java.awt.Dimension(310, 45));
         pCheckout.setLayout(null);
 
@@ -793,6 +861,9 @@ public class NovoCadastro extends javax.swing.JFrame {
         pCheckout.add(txtEntrada1);
         txtEntrada1.setBounds(100, 17, 150, 27);
 
+        getContentPane().add(pCheckout);
+        pCheckout.setBounds(17, 382, 680, 120);
+
         txtID.setText(new SimpleDateFormat("yyyyMMddhhmmss").format(new Date(System.currentTimeMillis())));
         txtID.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -804,7 +875,10 @@ public class NovoCadastro extends javax.swing.JFrame {
                 txtIDActionPerformed(evt);
             }
         });
+        getContentPane().add(txtID);
+        txtID.setBounds(17, 519, 120, 24);
 
+        btnLimpar.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLimpar.setText("Limpar");
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -812,7 +886,10 @@ public class NovoCadastro extends javax.swing.JFrame {
                 btnLimparActionPerformed(evt);
             }
         });
+        getContentPane().add(btnLimpar);
+        btnLimpar.setBounds(187, 510, 90, 40);
 
+        btnAlterar.setBackground(new java.awt.Color(255, 255, 255));
         btnAlterar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAlterar.setForeground(new java.awt.Color(0, 0, 255));
         btnAlterar.setText("Alterar");
@@ -821,7 +898,10 @@ public class NovoCadastro extends javax.swing.JFrame {
                 btnAlterarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAlterar);
+        btnAlterar.setBounds(330, 509, 90, 40);
 
+        btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
         btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(255, 0, 0));
         btnExcluir.setText("Excluir");
@@ -830,7 +910,10 @@ public class NovoCadastro extends javax.swing.JFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnExcluir);
+        btnExcluir.setBounds(438, 509, 90, 40);
 
+        btnEnviar.setBackground(new java.awt.Color(255, 255, 255));
         btnEnviar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -838,146 +921,14 @@ public class NovoCadastro extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnEnviar);
+        btnEnviar.setBounds(588, 509, 90, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblResponsavel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(btnBuscaResp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(pCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(lblNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(txtNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(lblNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(pNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pVegetariana, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pDiversos, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pInternos, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblOrientador, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cmbCategoria, 0, 168, Short.MAX_VALUE)
-                                    .addComponent(cmbOrientador, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(txtEmail)
-                                    .addComponent(txtGrupo, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)
-                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(31, 31, 31))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblBackground)
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscaResp, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblNQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
-                        .addComponent(pNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscaGrup, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(cmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8)
-                                .addComponent(lblCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblOrientador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbOrientador, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pVegetariana, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(pDiversos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(pInternos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Stor\\Documents\\GitHub\\SistemaHoteleiro\\src\\main\\java\\com\\mycompany\\sistemahoteleiro\\background.jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setAlignmentY(0.0F);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-6, -6, 750, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1529,8 +1480,8 @@ public class NovoCadastro extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbNormal;
     private javax.swing.JTextField cmbOrientador;
     private javax.swing.JComboBox<String> cmbVegetariana;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEntrada;
