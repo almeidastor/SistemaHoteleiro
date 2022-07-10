@@ -1126,7 +1126,7 @@ public class NovoCadastro extends javax.swing.JFrame {
             String idClient2 = txtID.getText();
             
             java.sql.Date datedate = new java.sql.Date (dtCheckin.getTime());
-            java.sql.Date datedate1 = new java.sql.Date (dtCheckin.getTime());
+            java.sql.Date datedate1 = new java.sql.Date (dtCheckout.getTime());
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
@@ -1304,7 +1304,7 @@ public class NovoCadastro extends javax.swing.JFrame {
             boolean chkReserva = cbReserva.isSelected();
             
             java.sql.Date datedate = new java.sql.Date (dtCheckin.getTime());
-            java.sql.Date datedate1 = new java.sql.Date (dtCheckin.getTime());
+            java.sql.Date datedate1 = new java.sql.Date (dtCheckout.getTime());
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sistemahoteleiro","root","");
