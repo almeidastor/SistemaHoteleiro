@@ -3,8 +3,8 @@
   <img src="https://img.shields.io/static/v1?label=JDk &message=v11.0.14&color=red&style=flat&logo=appveyor&logo=openjdk"/>
   <img src="https://img.shields.io/static/v1?label=Maven &message=v4.0.0&color=orange&style=flat&logo=appveyor&logo=apachemaven"/>
   <img src="https://img.shields.io/static/v1?label=MySQL &message=v10.1.37&color=blue&style=flat&logo=appveyor&logo=mysql"/>
-  <img src="http://img.shields.io/static/v1?label=SIZE&message=2.79 MB&color=blue&style=flat&logo=appveyor"/>
-  <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=flat&logo=appveyor"/>
+  <img src="http://img.shields.io/static/v1?label=SIZE&message=2.79 MB&color=blue&style=flat"/>
+  <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=flat"/>
 </p>
 
  <p align="center"><img src="https://github.com/almeidastor/imgsforreadme/blob/main/sistemahoteleiro/01.png"></p>
