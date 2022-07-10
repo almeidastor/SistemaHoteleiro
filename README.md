@@ -30,8 +30,7 @@ Sistema Hoteleiro teve origem em 2018 através de um caso onde uma casa de encon
 </p>
 
 ## Versionamento
-* [09/07/2022] Beta 1.0:
-<p>Calcula os valores automaticamente em base das informações dadas, faz cadastro, alteração e exclusão de dados.</p>
+* **[09/07/2022] _Beta 1.0:_** Calcula os valores automaticamente em base das informações dadas, faz cadastro, alteração e exclusão de dados.
 
 
 
@@ -48,11 +47,11 @@ Sistema Hoteleiro teve origem em 2018 através de um caso onde uma casa de encon
 O processo de armazenamento das informações foi feito por jdbc:
 
   Informações do Banco:
-  * Local: localhost;
-  * User: root;
+  * Local: **localhost**;
+  * User: **root**;
   * Senha:
-  * Nome do Banco: sistemahoteleiro;
-  * Tabela: cadastro;
+  * Nome do Banco: **sistemahoteleiro**;
+  * Tabela: **cadastro**;
   
 
 
