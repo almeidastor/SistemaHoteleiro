@@ -30,8 +30,8 @@ Sistema Hoteleiro teve origem em 2018 através de um caso onde uma casa de encon
 </p>
 
 ## Versionamento
-* [09/07/2022] Beta 1.0
-Calcula os valores automaticamente em base das informações dadas, faz cadastro, alteração e exclusão de dados.
+* [09/07/2022] Beta 1.0:
+<p>Calcula os valores automaticamente em base das informações dadas, faz cadastro, alteração e exclusão de dados.</p>
 
 
 
@@ -47,17 +47,18 @@ Calcula os valores automaticamente em base das informações dadas, faz cadastro
 ## Rodando a aplicação
  O processo de armazenamento das informações foi feito por jdbc:
   * Informações do Banco:
-  Local: localhost;
+  <p>Local: localhost;
   User: root;
   Senha:
   Nome do Banco: sistemahoteleiro;
   Tabela: cadastro;
+  </p>
 
 
 
  * Demonstração da aplicação:
 
-<p align="center">[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KzqdqNpYi0A.jpg)](https://www.youtube.com/watch?v=KzqdqNpYi0A)</p>
+<p align="center"><a href="https://www.youtube.com/watch?v=KzqdqNpYi0A"><img src="https://github.com/almeidastor/imgsforreadme/blob/main/sistemahoteleiro/demonst.png"></a></p>
 
 
   
