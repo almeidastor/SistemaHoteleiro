@@ -47,18 +47,18 @@ Sistema Hoteleiro teve origem em 2018 através de um caso onde uma casa de encon
 ## Rodando a aplicação
  O processo de armazenamento das informações foi feito por jdbc:
   * Informações do Banco:
-  <p>Local: localhost;
-  User: root;
-  Senha:
-  Nome do Banco: sistemahoteleiro;
-  Tabela: cadastro;
-  </p>
+  <p>Local: localhost;</p>
+  <p>User: root;</p>
+  <p>Senha:</p>
+  <p>Nome do Banco: sistemahoteleiro;</p>
+  <p>Tabela: cadastro;</p>
+  
 
 
 
  * Demonstração da aplicação:
 
-<p align="center"><a href="https://www.youtube.com/watch?v=KzqdqNpYi0A"><img src="https://github.com/almeidastor/imgsforreadme/blob/main/sistemahoteleiro/demonst.png"></a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=KzqdqNpYi0A" target="_blank"><img src="https://github.com/almeidastor/imgsforreadme/blob/main/sistemahoteleiro/demonst.png"></a></p>
 
 
   
